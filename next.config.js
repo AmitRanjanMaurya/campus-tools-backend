@@ -1,17 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Simplified API-only configuration
-  experimental: {
-    serverComponentsExternalPackages: ['sharp'],
-  },
+  // Force API-only mode
+  output: 'standalone',
   
-  // Skip building pages, focus on API
+  // Disable all page generation
+  generateStaticParams: () => [],
+  
+  // Skip build checks
   typescript: {
     ignoreBuildErrors: true,
   },
-  
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  
+  // Only process API routes
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      // Exclude page components from server build
+      config.externals = config.externals || [];
+      config.externals.push(/^(?!.*\/api\/).*page\.(js|ts|jsx|tsx)$/);
+    }
+    return config;
   },
 }
 
