@@ -1,0 +1,62 @@
+{
+  "name": "CampusToolsHub - Ultimate Productivity Hub for College Students",
+  "short_name": "CampusToolsHub",
+  "description": "All-in-one academic productivity platform with 20+ tools for students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["education", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "GPA Calculator",
+      "short_name": "GPA Calc",
+      "description": "Calculate your GPA quickly",
+      "url": "/tools/gpa-calculator",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Resume Builder",
+      "short_name": "Resume",
+      "description": "Build professional resumes",
+      "url": "/tools/resume-builder",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Study Timer",
+      "short_name": "Timer",
+      "description": "Focus with Pomodoro timer",
+      "url": "/tools/study-timer",
+      "icons": [{ "src": "/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

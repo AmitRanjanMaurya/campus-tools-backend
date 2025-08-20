@@ -1,0 +1,56 @@
+# Robots.txt for Student Tools - Secure Configuration
+User-agent: *
+Allow: /
+
+# Allow specific important pages
+Allow: /tools/
+Allow: /blog/
+Allow: /about
+Allow: /contact
+Allow: /privacy
+Allow: /terms
+Allow: /faq
+
+# Block access to admin and sensitive areas
+Disallow: /backend/
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /data/
+Disallow: /.env*
+Disallow: /dashboard/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /signup/
+Disallow: /reset-password/
+Disallow: /profile/
+Disallow: /account/
+Disallow: /scripts/
+Disallow: /node_modules/
+Disallow: /*.config.js$
+Disallow: /*.config.ts$
+Disallow: /*package.json$
+Disallow: /test/
+Disallow: /dev/
+Disallow: /*.log$
+
+# Block common bot traps and malicious crawlers
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /xmlrpc.php
+
+# Block specific malicious bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot  
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap locations (use HTTPS and correct domain)
+Sitemap: https://campustoolshub.com/sitemap.xml

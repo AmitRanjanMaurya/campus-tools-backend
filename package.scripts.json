@@ -1,0 +1,17 @@
+{
+  "name": "student-tools-platform",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "dev:clean": "rm -rf .next && npm run dev",
+    "build:frontend": "cp next.config.frontend.js next.config.js && cp .env.frontend .env.production && next build",
+    "build:backend": "cp next.config.backend.js next.config.js && cp .env.backend .env.production && next build",
+    "deploy:frontend": "npm run build:frontend",
+    "deploy:backend": "npm run build:backend"
+  }
+}

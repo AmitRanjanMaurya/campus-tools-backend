@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Auth Cache</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .button { padding: 10px 20px; margin: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .success { color: green; }
+        .info { background: #f0f8ff; padding: 15px; border-radius: 5px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Clear Authentication Cache</h1>
+    
+    <div class="info">
+        <h3>Blog Admin Credentials:</h3>
+        <p><strong>Email:</strong> amitranjanmaurya10@gmail.com</p>
+        <p><strong>Password:</strong> Ranjan@2003@annu</p>
+    </div>
+    
+    <button class="button" onclick="clearAllAuth()">Clear All Authentication Data</button>
+    <button class="button" onclick="clearFirebaseAuth()">Clear Firebase Auth Only</button>
+    <button class="button" onclick="clearBlogAuth()">Clear Blog Auth Only</button>
+    <button class="button" onclick="goToBlogAdmin()">Go to Blog Admin</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function clearAllAuth() {
+            // Clear localStorage
+            localStorage.clear();
+            
+            // Clear sessionStorage
+            sessionStorage.clear();
+            
+            // Clear cookies (basic method)
+            document.cookie.split(";").forEach(function(c) {
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+            });
+            
+            document.getElementById('result').innerHTML = '<p class="success">✅ All authentication data cleared!</p>';
+        }
+        
+        function clearFirebaseAuth() {
+            // Clear Firebase specific data
+            const keysToRemove = [];
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && (key.includes('firebase') || key.includes('Firebase'))) {
+                    keysToRemove.push(key);
+                }
+            }
+            keysToRemove.forEach(key => localStorage.removeItem(key));
+            
+            // Clear firebase auth cookie
+            document.cookie = 'student_tools_auth=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+            
+            document.getElementById('result').innerHTML = '<p class="success">✅ Firebase authentication data cleared!</p>';
+        }
+        
+        function clearBlogAuth() {
+            localStorage.removeItem('blog_admin_session');
+            localStorage.removeItem('blog_admin_token');
+            
+            document.getElementById('result').innerHTML = '<p class="success">✅ Blog authentication data cleared!</p>';
+        }
+        
+        function goToBlogAdmin() {
+            window.location.href = '/admin/blog';
+        }
+    </script>
+</body>
+</html>
