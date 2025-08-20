@@ -5,40 +5,6 @@
       "runtime": "nodejs18.x"
     }
   },
-  "routes": [
-    {
-      "src": "/api/test-env",
-      "dest": "/api/test-env.js"
-    },
-    {
-      "src": "/api/blog",
-      "dest": "/api/blog.js"
-    },
-    {
-      "src": "/api/blog/auth",
-      "dest": "/api/blog/auth.js"
-    },
-    {
-      "src": "/api/ai-doubt-solver",
-      "dest": "/api/ai-doubt-solver.js"
-    },
-    {
-      "src": "/api/quiz-generator",
-      "dest": "/api/quiz-generator.js"
-    },
-    {
-      "src": "/api/mind-map-generator",
-      "dest": "/api/mind-map-generator.js"
-    },
-    {
-      "src": "/api/plagiarism-check",
-      "dest": "/api/plagiarism-check.js"
-    },
-    {
-      "src": "/api/resume-builder",
-      "dest": "/api/resume-builder.js"
-    }
-  ],
   "headers": [
     {
       "source": "/api/(.*)",
