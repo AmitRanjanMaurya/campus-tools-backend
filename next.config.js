@@ -1,27 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Force API-only mode
-  output: 'standalone',
+  // Minimal configuration - no pages, no builds
+  // This project is API-only for Vercel serverless functions
   
-  // Disable all page generation
-  generateStaticParams: () => [],
+  // Disable everything
+  output: undefined,
+  generateStaticParams: undefined,
   
-  // Skip build checks
+  // Just basic settings
+  reactStrictMode: false,
+  swcMinify: false,
+  
+  // Ignore all errors since we're not building pages
   typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
-  },
-  
-  // Only process API routes
-  webpack: (config, { isServer }) => {
-    if (isServer) {
-      // Exclude page components from server build
-      config.externals = config.externals || [];
-      config.externals.push(/^(?!.*\/api\/).*page\.(js|ts|jsx|tsx)$/);
-    }
-    return config;
   },
 }
 
