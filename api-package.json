@@ -1,0 +1,13 @@
+{
+  "name": "campus-tools-api",
+  "version": "1.0.0",
+  "description": "Serverless API functions for Campus Tools Hub",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
+  }
+}
